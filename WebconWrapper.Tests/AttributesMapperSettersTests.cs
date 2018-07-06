@@ -8,11 +8,11 @@ using WebconWrapper.Exceptions;
 
 namespace WebconWrapper.Tests
 {
-    public class AttributesMapperTests : IDisposable
+    public class AttributesMapperSettersTests : IDisposable
     {
         private MockRepository mockRepository;
 
-        public AttributesMapperTests()
+        public AttributesMapperSettersTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
         }
