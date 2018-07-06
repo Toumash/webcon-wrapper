@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WebconProxy;
+using WebconWrapper.Exceptions;
 
 namespace WebconWrapper
 {
@@ -29,11 +30,29 @@ namespace WebconWrapper
 
         internal T GetAttributeById<T>(NewElement element, int id)
             where T : WebconProxy.Attribute
-            => GetAttribute<T>(element, (a) => a.Id == id);
+        {
+            try
+            {
+                return GetAttribute<T>(element, (a) => a.Id == id);
+            }
+            catch (MissingFieldException)
+            {
+                throw new FieldNotFoundException($"Could not find webcon attribute with id: ({id})");
+            }
+        }
 
         internal T GetAttributeByName<T>(NewElement element, string fieldName)
             where T : WebconProxy.Attribute
-            => GetAttribute<T>(element, (a) => a.FieldName == fieldName);
+        {
+            try
+            {
+                return GetAttribute<T>(element, (a) => a.FieldName == fieldName);
+            }
+            catch (MissingFieldException)
+            {
+                throw new FieldNotFoundException($"Could not find webcon attribute with name \"{fieldName}\"");
+            }
+        }
 
         private T GetAttribute<T>(NewElement element, Func<WebconProxy.Attribute, bool> selector)
             where T : WebconProxy.Attribute
@@ -51,7 +70,11 @@ namespace WebconWrapper
             attributes.AddRange(element.SubElementAttributes);
             attributes.AddRange(element.TextAttributes);
             attributes.AddRange(element.TreeAttributes);
-            var att = attributes.First(selector);
+            var att = attributes.FirstOrDefault(selector);
+
+            if (att == null)
+                throw new MissingFieldException();
+
             return att as T;
         }
     }

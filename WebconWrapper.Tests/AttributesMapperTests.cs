@@ -4,6 +4,7 @@ using WebconProxy;
 using WebconWrapper;
 using Xunit;
 using System.Collections.Generic;
+using WebconWrapper.Exceptions;
 
 namespace WebconWrapper.Tests
 {
@@ -45,6 +46,27 @@ namespace WebconWrapper.Tests
         {
             return new AttributesMapper();
         }
+
+
+        [Fact]
+        public void SetValue_WhenNoFieldWithGivenId_ShouldThrowFieldNotFoundException()
+        {
+            // Arrange
+            var unitUnderTest = CreateAttributesMapper();
+            NewElement element = InitializeEmptyNewElement();
+            int nonExistingId = 15;
+            int whateverValue = 150;
+
+            Assert.ThrowsAny<FieldNotFoundException>(() =>
+            {
+                // Act
+                unitUnderTest.SetValue(
+                    element,
+                    nonExistingId,
+                    whateverValue);
+            });
+        }
+
 
         [Fact]
         public void SetValue_SetsIntegerAttribute()
