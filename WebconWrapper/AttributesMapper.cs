@@ -6,29 +6,29 @@ using WebconWrapper.Exceptions;
 
 namespace WebconWrapper
 {
-    public class AttributesMapper
+    public static class AttributesMapper
     {
-        public void SetValue(NewElement element, int id, int value)
+        public static void SetValue(this NewElement element, int id, int value)
             => GetAttributeById<IntegerAttribute>(element, id).Value = value;
 
-        public void SetValue(NewElement element, int id, string value)
+        public static void SetValue(this NewElement element, int id, string value)
             => GetAttributeById<TextAttribute>(element, id).Value = value;
 
-        public void SetValue(NewElement element, int id, bool value)
+        public static void SetValue(this NewElement element, int id, bool value)
             => GetAttributeById<BoolAttribute>(element, id).Value = value;
 
-        public void SetValue(NewElement element, int id, DateTime value)
+        public static void SetValue(this NewElement element, int id, DateTime value)
             => GetAttributeById<DateTimeAttribute>(element, id).Value = value;
 
-        public void SetValue(NewElement element, int id, decimal value)
+        public static void SetValue(this NewElement element, int id, decimal value)
             => GetAttributeById<DecimalAttribute>(element, id).Value = value;
 
-        public void AddComment(NewElement element, int id, string value)
+        public static void AddComment(this NewElement element, int id, string value)
             => GetAttributeById<CommentAttribute>(element, id).Value.NewComment = value;
 
 
 
-        internal T GetAttributeById<T>(NewElement element, int id)
+        internal static T GetAttributeById<T>(this NewElement element, int id)
             where T : WebconProxy.Attribute
         {
             try
@@ -41,7 +41,7 @@ namespace WebconWrapper
             }
         }
 
-        internal T GetAttributeByName<T>(NewElement element, string fieldName)
+        internal static T GetAttributeByName<T>(this NewElement element, string fieldName)
             where T : WebconProxy.Attribute
         {
             try
@@ -54,7 +54,7 @@ namespace WebconWrapper
             }
         }
 
-        private T GetAttribute<T>(NewElement element, Func<WebconProxy.Attribute, bool> selector)
+        private static T GetAttribute<T>(this NewElement element, Func<WebconProxy.Attribute, bool> selector)
             where T : WebconProxy.Attribute
         {
             var attributes = new List<WebconProxy.Attribute>();

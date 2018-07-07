@@ -17,7 +17,6 @@ namespace WebconWrapper.IntegrationTests
         public WebconClientConnectionTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
-
             this.mockBPSWebservice = this.mockRepository.Create<BPSWebservice>();
         }
 
@@ -52,12 +51,12 @@ namespace WebconWrapper.IntegrationTests
         {
             var unitUnderTest = CreateWebconClient();
 
-            Func<Task> xd = async () =>
+            Func<Task> newWorkflowRequest = async () =>
                 await unitUnderTest.NewWorkflowAsync(
                     wfId: int.Parse(GetConfigString(TestConfigEntries.TestWfId)),
                     formId: int.Parse(GetConfigString(TestConfigEntries.TestFormId))
                 );
-            xd.Should().NotThrow();
+            newWorkflowRequest.Should().NotThrow();
         }
     }
 }

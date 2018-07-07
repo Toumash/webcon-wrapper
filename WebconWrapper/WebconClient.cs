@@ -16,14 +16,15 @@ namespace WebconWrapper
             _client = client;
         }
 
-        internal async Task<NewElement> NewWorkflowAsync(int wfId, int formId)
+        internal async Task<Element> NewWorkflowAsync(int wfId, int formId)
         {
             var newElementParams = new GetNewElementParams()
             {
                 WorkFlowId = wfId,
                 DocTypeId = formId
             };
-            return await _client.GetNewElementAsync(newElementParams);
+            var webconElement = await _client.GetNewElementAsync(newElementParams);
+            return new Element(webconElement);
         }
 
         public static WebconClient WithCachedCredentials(string url)

@@ -42,22 +42,15 @@ namespace WebconWrapper.Tests
             return element;
         }
 
-        private AttributesMapper CreateAttributesMapper()
-        {
-            return new AttributesMapper();
-        }
-
-
         [Fact]
         public void SetValue_WhenNoFieldWithGivenId_ShouldThrowFieldNotFoundException()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int nonExistingId = 15;
 
             Assert.ThrowsAny<FieldNotFoundException>(() =>
             {
-                unitUnderTest.SetValue(element, nonExistingId, 150);
+                element.SetValue(nonExistingId, 150);
             });
         }
 
@@ -65,14 +58,13 @@ namespace WebconWrapper.Tests
         [Fact]
         public void SetValue_SetsIntegerAttribute()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new IntegerAttribute() { Id = id };
             element.IntegerAttributes.Add(att);
             int value = 150;
 
-            unitUnderTest.SetValue(element, id, value);
+            element.SetValue(id, value);
 
             Assert.Equal(value, att.Value);
         }
@@ -80,14 +72,13 @@ namespace WebconWrapper.Tests
         [Fact]
         public void SetValue_SetsBooleanAttribute()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new BoolAttribute() { Id = id };
             element.BoolAttributes.Add(att);
             bool value = true;
 
-            unitUnderTest.SetValue(element, id, value);
+            element.SetValue(id, value);
 
             Assert.Equal(value, att.Value);
         }
@@ -95,14 +86,13 @@ namespace WebconWrapper.Tests
         [Fact]
         public void SetValue_SetsStringAttribute()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new TextAttribute() { Id = id };
             element.TextAttributes.Add(att);
             string value = "test string";
 
-            unitUnderTest.SetValue(element, id, value);
+            element.SetValue(id, value);
 
             Assert.Equal(value, att.Value);
         }
@@ -110,14 +100,13 @@ namespace WebconWrapper.Tests
         [Fact]
         public void SetValue_SetsDateTimeAttribute()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new DateTimeAttribute() { Id = id };
             element.DateTimeAttributes.Add(att);
             DateTime value = DateTime.Now;
 
-            unitUnderTest.SetValue(element,id,value);
+            element.SetValue(id, value);
 
             Assert.Equal(value, att.Value);
         }
@@ -125,14 +114,13 @@ namespace WebconWrapper.Tests
         [Fact]
         public void SetValue_SetsDecimalAttribute()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new DecimalAttribute() { Id = id };
             element.DecimalAttributes.Add(att);
             decimal value = 15.15m;
 
-            unitUnderTest.SetValue(element,id,value);
+            element.SetValue(id, value);
 
             Assert.Equal(value, att.Value);
         }
@@ -140,7 +128,6 @@ namespace WebconWrapper.Tests
         [Fact]
         public void AddComment_AddsComment()
         {
-            var unitUnderTest = CreateAttributesMapper();
             NewElement element = InitializeEmptyNewElement();
             int id = 15;
             var att = new CommentAttribute() { Id = id };
@@ -148,7 +135,7 @@ namespace WebconWrapper.Tests
             element.CommentAttributes.Add(att);
             string value = "test string";
 
-            unitUnderTest.AddComment(element,id,value);
+            element.AddComment(id, value);
 
             Assert.Equal(value, att.Value.NewComment);
         }
