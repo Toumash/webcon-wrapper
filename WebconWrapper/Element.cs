@@ -9,7 +9,7 @@ namespace WebconWrapper
     {
         private readonly NewElement _element;
 
-        internal NewElement SourceElement { get; }
+        internal NewElement SourceElement { get => _element; }
 
 
         public Element()

@@ -16,6 +16,8 @@ namespace WebconWrapper
             _client = client;
         }
 
+        internal BPSWebserviceClient SourceClient { get => _client as BPSWebserviceClient; }
+
         internal async Task<Element> NewWorkflowAsync(int wfId, int formId)
         {
             var newElementParams = new GetNewElementParams()
