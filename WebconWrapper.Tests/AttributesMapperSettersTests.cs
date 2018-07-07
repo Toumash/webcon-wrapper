@@ -8,20 +8,8 @@ using WebconWrapper.Exceptions;
 
 namespace WebconWrapper.Tests
 {
-    public class AttributesMapperSettersTests : IDisposable
+    public class AttributesMapperSettersTests
     {
-        private MockRepository mockRepository;
-
-        public AttributesMapperSettersTests()
-        {
-            this.mockRepository = new MockRepository(MockBehavior.Strict);
-        }
-
-        public void Dispose()
-        {
-            this.mockRepository.VerifyAll();
-        }
-
         public static NewElement InitializeEmptyNewElement(NewElement element = null)
         {
             if (element == null)
