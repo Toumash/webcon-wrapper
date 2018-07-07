@@ -22,7 +22,7 @@ namespace WebconWrapper.Tests
             this.mockRepository.VerifyAll();
         }
 
-        private NewElement InitializeEmptyNewElement(NewElement element = null)
+        public static NewElement InitializeEmptyNewElement(NewElement element = null)
         {
             if (element == null)
                 element = new NewElement();
