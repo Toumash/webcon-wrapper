@@ -10,11 +10,6 @@ namespace WebconWrapper
 
         public int xd = 5;
 
-        public SetUpAttributes()
-        {
-            Text(5);
-        }
-
         private void Text(int id)
             => Attributes.Add(new TextAttribute() { Id = id });
 
@@ -22,7 +17,6 @@ namespace WebconWrapper
 
         public void Send()
         {
-            return this.SetValue()
         }
     }
 }
