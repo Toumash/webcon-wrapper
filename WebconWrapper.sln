@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebconWrapper.Tests", "Webc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebconWrapper.IntegrationTests", "WebconWrapper.IntegrationTests\WebconWrapper.IntegrationTests.csproj", "{D92D2FB7-C58E-4783-8CE6-D4F1F4FC8572}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebconWrapper.ConfigServices", "WebconWrapper.ConfigServices\WebconWrapper.ConfigServices.csproj", "{819632A0-F75B-40B4-880F-6E8E1B18A1A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D92D2FB7-C58E-4783-8CE6-D4F1F4FC8572}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D92D2FB7-C58E-4783-8CE6-D4F1F4FC8572}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D92D2FB7-C58E-4783-8CE6-D4F1F4FC8572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{819632A0-F75B-40B4-880F-6E8E1B18A1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{819632A0-F75B-40B4-880F-6E8E1B18A1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{819632A0-F75B-40B4-880F-6E8E1B18A1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{819632A0-F75B-40B4-880F-6E8E1B18A1A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
