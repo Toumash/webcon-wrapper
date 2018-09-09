@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebconWrapper.ConfigServices.Model;
 
-namespace WebconWrapper.ConfigServices.Services
+namespace WebconWrapper.ConfigServices.DAL
 {
     public class AttributesRepo
     {

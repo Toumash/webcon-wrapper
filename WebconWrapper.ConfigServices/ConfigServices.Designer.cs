@@ -62,16 +62,16 @@ namespace WebconWrapper.ConfigServices {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT
-        ///    wf.WF_Name,
-        ///    c.[WFCON_ID]
+        ///    wf.WF_Name as WF_Name,
+        ///    c.[WFCON_ID] as A_Id
         ///      , c.[WFCON_FDEFID]
-        ///      , c.[WFCON_DEFID]
-        ///      , c.[WFCON_FieldTypeID]
+        ///      , c.[WFCON_DEFID] as DEFID
+        ///      , c.[WFCON_FieldTypeID] as A_TypeId
         ///    --   , c.[WFCON_IsArchival]
         ///    --   , c.[WFCON_IsTechnical]
         ///      , c.[WFCON_ChoiceFieldType]
-        ///      , c.[WFCON_Prompt]
-        ///      , d.Name
+        ///      , c.[WFCON_Prompt] as A_Title
+        ///      , d.Name as A_Type
         ///      , d.ObjectName
         ///--   , d.EnglishName
         ///FROM [BPS_Content].[dbo].[WFConfigurations] c
@@ -80,9 +80,7 @@ namespace WebconWrapper.ConfigServices {
         ///        [TypeID]
         ///      , [Name]
         ///      , [ObjectName]
-        ///      , [Description]
-        ///      , [EnglishName]
-        ///    FROM [BPS_Content [rest of string was truncated]&quot;;.
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AllAttritubes {
             get {
