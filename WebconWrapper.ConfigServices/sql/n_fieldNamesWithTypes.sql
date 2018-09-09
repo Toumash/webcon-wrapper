@@ -4,14 +4,13 @@ SELECT
       , c.[WFCON_FDEFID]
       , c.[WFCON_DEFID]
       , c.[WFCON_FieldTypeID]
-      , c.[WFCON_IsArchival]
-      , c.[WFCON_IsTechnical]
+    --   , c.[WFCON_IsArchival]
+    --   , c.[WFCON_IsTechnical]
       , c.[WFCON_ChoiceFieldType]
       , c.[WFCON_Prompt]
-      , c.WFCON_IsDeleted
       , d.Name
       , d.ObjectName
-      , d.EnglishName
+--   , d.EnglishName
 FROM [BPS_Content].[dbo].[WFConfigurations] c
     INNER JOIN
     (SELECT
